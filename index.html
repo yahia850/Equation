@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+function myFunction() {
+  let a=document.getElementById("a").value;
+  let b=document.getElementById("b").value;
+  let c=document.getElementById("c").value;
+  let delta= b*b-4*a*c;
+  console.log("delta = "+delta);
+  let text="";
+  if (delta>0)
+    {
+        let x1=(-b-Math.sqrt(delta))/(2*a);
+        console.log("x1="+x1);
+        let x2=(-b+Math.sqrt(delta))/(2*a);
+        text="2 solutions : x1="+x1 +"  x2=" +x2; 
+    }
+    else if (delta==0)
+    {
+        let x=-b/2*a;
+        text="solutions doubles  : x1=x2="+x;
+    }
+    else 
+        text="pas de solution"
+    
+  document.getElementById("demo").innerHTML =text;
+}
+</script>
 <style>
 .button {
   background-color: #4CAF50; /* Green */
@@ -22,7 +48,8 @@
   <input type="text" id="a" > x <sup>2</sup>+ 
   <input type="text" id="b" > x +
   <input type="text" id="c" > =0 <br>
-  <button class="button">Resolve</button>
-  
+  <button class="button" onclick="myFunction()">Resolve</button>
+  <p id="demo">A Paragraph</p>
+    
 </body>
 </html>
